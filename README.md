@@ -1,8 +1,9 @@
 # Overview
 
-This project describes the steps that can be adhered to, to make a Linux Mint 20.1 VirtualBox virtual machine configured for ESP32 software development with Eclipse.
+This short tutorial describes a way to make a virtual machine configured for ESP32 software development with Eclipse, and explains how to use it. The virtualization environment is VirtualBox, and the guest machine runs Linux Mint 20.1.
 
-Prerequisites:
+# Prerequisites
+
 * hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, with a few tens of GB available on the disk, and one free USB A port
 * hardware (bis): an [Espressif ESP32-DevKitC](https://www.espressif.com/en/products/devkits/esp32-devkitc/overview) with an USB A / micro USB B cable - any similar development board can be used
 * developer: 
@@ -27,9 +28,9 @@ Wait for Linux desktop to be displayed.
 
 If your keyboard layout is not QWERTY, click on the main-menu icon (the small icon displaying Linux Mint logo, in the lower left-hand corner), select **Control Center**, click on **Keyboard** icon, select **Layouts** tab, add the layout for your keyboard, and remove the existing **English (US)** layout. Close the Control Center windows.
 
-Double click on the **Install Linux Mint** icon. I provide following information or selections, when required for:
+Double click on the **Install Linux Mint** icon. Following information or selections can be provided, when required for:
 * language: English
-* keyboard layout: the one for your keyboard (again, yes)
+* keyboard layout: the one for your keyboard
 * install multimedia codecs
 * erase disk and install Linux Mint
 * name: Developer
@@ -49,7 +50,7 @@ Click on the system report icon, in the lower right-hand corner: ![icon](images/
 
 For the system restore utility, click on **Ignore this report**. Close the window.
 
-Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcom screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it again :-) ). Click on **Install Updates** button, and accept additional changes.
+Click on the update manager icon, in the lower right-hand corner: ![icon](images/updateManagerIcon.png). In the welcome screen of the **Update Manager** window that appears, click on **OK** button. Click on the **No** button of the **Do you want to switch to a local mirror?** banner (you'll be able to choose one later on). If you are told that a new version of the update manager is available, click on **Apply the Update** button. Again, the requested password is the one you chose above (I won't say it anymore :-) ). Click on **Install Updates** button, and accept additional changes.
 
 Reboot, if you are required to: main menu and **Quit > Restart**.
 
@@ -65,7 +66,7 @@ You can resize the VirtualBox window: the Linux Mint desktop will resize accordi
 
 ### Python
 
-Linux Mint comes with python3. Define the **python** command as running python3 by installing the **python-is-python3** package:
+Linux Mint comes with python3. Define the **python** command so that it runs python3 by installing the **python-is-python3** package:
 
 ```shell
 $ sudo apt-get install python-is-python3
@@ -141,6 +142,6 @@ If you check the source code of the application, you will see that eclipse displ
 
 [Configure a launch target](https://github.com/espressif/idf-eclipse-plugin#configuring-launch-target) for the board. Build the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#compiling-the-project).
 
-Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). Right after having requested the flash operation, hold down BOOT button on the board, hold down EN, release EN, release BOOT.
+Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flash operation does not start right after having requested it, hold down BOOT button on the board, hold down EN, release EN, release BOOT.
 
 TBD: check why the LED does not flash.
