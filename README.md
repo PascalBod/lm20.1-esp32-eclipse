@@ -3,7 +3,8 @@
 This project describes the steps that can be adhered to, to make a Linux Mint 20.1 VirtualBox virtual machine configured for ESP32 software development with Eclipse.
 
 Prerequisites:
-* hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, and with a few tens of spare GB on the disk
+* hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, with a few tens of GB available on the disk, and one free USB A port
+* hardware (bis): an [Espressif ESP32-DevKitC](https://www.espressif.com/en/products/devkits/esp32-devkitc/overview) with an USB A / micro USB B cable - any similar development board can be used
 * developer: 
   * basic knowledge of Linux (knowing the most common commands...)
   * basic knowledge of VirtualBox (knowing how to create a virtual machine...)
@@ -56,10 +57,90 @@ You can resize the VirtualBox window: the Linux Mint desktop will resize accordi
 
 # VM configuration
 
+## Reference documents
+
+* [Espressif documentation](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md)
+
 ## Prerequisites
+
+### Python
+
+Linux Mint comes with python3. Define the **python** command as running python3 by installing the **python-is-python3** package:
+
+```shell
+$ sudo apt-get install python-is-python3
+```
+
+Install a few additional python packages:
+
+```shell
+$ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv
+```
 
 ### Eclipse
 
-[Download Eclipse CDT](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-06/R/eclipse-cpp-2020-06-R-linux-gtk-x86_64.tar.gz). This is version 2020-06, at time of writing.
+[Download Eclipse CDT](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-12/R/eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz). This is version 2020-12, at time of writing. Check the integrity of the downloaded file.
 
-Create the **~/DevTools** directory, and extract the contents of the downloaded file into it. Add a item to the main menu (right click on the main-menu icon and **Edit menu**) that runs **~/DevTools/eclipse/eclipse**.
+Create the **~/DevTools** directory, and extract the contents of the downloaded file into it. Add an item to the main menu (right click on the main-menu icon and **Edit menu**) that runs **~/DevTools/eclipse/eclipse**.
+
+### Git
+
+Install git:
+
+```shell
+$ sudo apt-get install git
+```
+
+### ESP-IDF
+
+Install ESP-IDF. Version at time of writing is 4.1.1.
+
+```shell
+$ mkdir ~/esp
+$ cd ~/esp
+$ git clone -b v4.1.1 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1.1
+```
+
+### Serial link
+
+To grant access to the virtual serial link that will be used to program the ESP32, add the user to the `dialout` group:
+
+```shell
+$ sudo adduser developer dialout
+```
+
+Close the session and reopen it.
+
+## Eclipse IDF plugin
+
+Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
+
+[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url).
+
+Restart eclipse.
+
+## ESP-IDF configuration
+
+In eclipse, select **Help > Download and Configure ESP-IDF**. Check **Use an existing ESP-IDF directory from the file system**. Choose the `/home/developer/esp/esp-idf-v4.1.1` directory. Click on **Finish** button.
+
+## Tools installation
+
+A message box offers to download the tools. Click on the **Yes** button. In the **Install Tools** dialog box that appears, specify the git path: `/usr/bin/git`. Click on **Install Tools** button.
+
+# ESP32-DevKitC connection
+
+Connect the DevKitC board to a USB port of the computer. Check that the virtual machine can see it, with **Devices > USB**. A new USB device should be visible: *Silicon Labs CP2102N USB to UART Bridge Controller*. Tick the associated checkbox.
+
+You can assign the board to the virtual machine on a permanent basis with **Devices > USB > USB Settings...**.
+
+# Sample application
+
+[Create a new project](https://github.com/espressif/idf-eclipse-plugin#create-a-new-project-using-esp-idf-templates), choosing the *blink* template.
+
+If you check the source code of the application, you will see that eclipse displays errors for the `#include` lines. Next step will make them disappear.
+
+[Configure a launch target](https://github.com/espressif/idf-eclipse-plugin#configuring-launch-target) for the board. Build the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#compiling-the-project).
+
+Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). Right after having requested the flash operation, hold down BOOT button on the board, hold down EN, release EN, release BOOT.
+
+TBD: check why the LED does not flash.
