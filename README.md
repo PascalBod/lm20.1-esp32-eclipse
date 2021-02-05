@@ -136,7 +136,7 @@ You can assign the board to the virtual machine on a permanent basis with **Devi
 
 # Sample application
 
-[Create a new project](https://github.com/espressif/idf-eclipse-plugin#create-a-new-project-using-esp-idf-templates), choosing the *blink* template.
+[Create a new project](https://github.com/espressif/idf-eclipse-plugin#create-a-new-project-using-esp-idf-templates), choosing the *hello_world* template.
 
 If you check the source code of the application, you will see that eclipse displays errors for the `#include` lines. Next step will make them disappear.
 
@@ -144,4 +144,4 @@ If you check the source code of the application, you will see that eclipse displ
 
 Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flash operation does not start right after having requested it, hold down BOOT button on the board, hold down EN, release EN, release BOOT.
 
-TBD: check why the LED does not flash.
+To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin#viewing-serial-output).
