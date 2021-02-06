@@ -14,7 +14,7 @@
     * [Serial link](#serialLink)
   * [Eclipse IDF plugin](#eclipseIdfPlugin)
   * [ESP-IDF configuration](#espIdfConfiguration)
-  *[Tools installation](#toolsInstallation)
+  * [Tools installation](#toolsInstallation)
 * [ESP32-DevKitC connection](#esp32devkitcConnection)
 * [Sample application](#sampleApplication)
 * [Update](#update)
