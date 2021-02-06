@@ -1,7 +1,18 @@
+#### Table of contents
+
+* [Overview](#overview)
+* [Prerequisites](#prerequisites)
+* [VirtualBox installation](#virtualboxInstallation)
+* [Creation of the VM](#creationOfTheVm)
+* [VM configuration](#vmConfiguration)
+  * [Reference documents](#referenceDocuments)
+
+<a name="overview"></a>
 # Overview
 
 This short tutorial describes a way to make a virtual machine configured for ESP32 software development with Eclipse, and explains how to use it. The virtualization environment is VirtualBox, and the guest machine runs Linux Mint 20.1.
 
+<a name="prerequisites"></a>
 # Prerequisites
 
 * hardware: a 64-bit computer with enough memory so that the VM can be granted 16 GB, with a few tens of GB available on the disk, and one free USB A port
@@ -10,12 +21,14 @@ This short tutorial describes a way to make a virtual machine configured for ESP
   * basic knowledge of Linux (knowing the most common commands...)
   * basic knowledge of VirtualBox (knowing how to create a virtual machine...)
 
+<a name="virtualboxInstallation"></a>
 # VirtualBox installation
 
 [Download the VirtualBox binary package for your platform and install it](https://www.virtualbox.org/wiki/Downloads). Version at time of writing is 6.1.18.
 
 Install the Extension Pack: it provides support for USB 2.0 and 3.0 devices.
 
+<a name="creationOfTheVm"></a>
 # Creation of the VM
 
 [Download Linux Mint 20.1, MATE edition](https://linuxmint.com/download.php).
@@ -56,8 +69,10 @@ Reboot, if you are required to: main menu and **Quit > Restart**.
 
 You can resize the VirtualBox window: the Linux Mint desktop will resize accordingly.
 
+<a name="vmConfiguration"></a>
 # VM configuration
 
+<a name="referenceDocuments"></a>
 ## Reference documents
 
 * [Espressif documentation](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md)
@@ -66,7 +81,7 @@ You can resize the VirtualBox window: the Linux Mint desktop will resize accordi
 
 ### Python
 
-Linux Mint comes with python3. Define the **python** command so that it runs python3 by installing the **python-is-python3** package:
+Linux Mint 20.1 comes with python3. Define the **python** command so that it runs python3 by installing the **python-is-python3** package:
 
 ```shell
 $ sudo apt-get install python-is-python3
@@ -116,7 +131,7 @@ Close the session and reopen it.
 
 Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
 
-[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url).
+[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url). At time of writing, this is version 1.2.4.
 
 Restart eclipse.
 
@@ -145,3 +160,9 @@ If you check the source code of the application, you will see that eclipse displ
 Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flashing operation does not start right after having requested it, i.e. the console waits on `Connecting........_____...`, hold down the board BOOT button until the flashing operation starts (a little bit more than 1 s).
 
 To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin#viewing-serial-output).
+
+# Update
+
+For Linux Mint, use the update manager (see above).
+
+For the Eclipse IDF plugin, check [this](https://github.com/espressif/idf-eclipse-plugin#how-do-i-upgrade-my-existing-idf-eclipse-plugin).
