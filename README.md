@@ -6,6 +6,18 @@
 * [Creation of the VM](#creationOfTheVm)
 * [VM configuration](#vmConfiguration)
   * [Reference documents](#referenceDocuments)
+  * [Prerequisites](#prerequisites)
+    * [Python](#python)
+    * [Eclipse](#eclipse)
+    * [Git](#git)
+    * [ESP-IDF](#espIdf)
+    * [Serial link](#serialLink)
+  * [Eclipse IDF plugin](#eclipseIdfPlugin)
+  * [ESP-IDF configuration](#espIdfConfiguration)
+  *[Tools installation](#toolsInstallation)
+* [ESP32-DevKitC connection](#esp32devkitcConnection)
+* [Sample application](#sampleApplication)
+* [Update](#update)
 
 <a name="overview"></a>
 # Overview
@@ -77,8 +89,10 @@ You can resize the VirtualBox window: the Linux Mint desktop will resize accordi
 
 * [Espressif documentation](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md)
 
+<a name="prerequisite"></a>
 ## Prerequisites
 
+<a name="python"></a>
 ### Python
 
 Linux Mint 20.1 comes with python3. Define the **python** command so that it runs python3 by installing the **python-is-python3** package:
@@ -93,12 +107,14 @@ Install a few additional python packages:
 $ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv
 ```
 
+<a name="eclipse"></a>
 ### Eclipse
 
 [Download Eclipse CDT](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-12/R/eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz). This is version 2020-12, at time of writing. Check the integrity of the downloaded file.
 
 Create the **~/DevTools** directory, and extract the contents of the downloaded file into it. Add an item to the main menu (right click on the main-menu icon and **Edit menu**) that runs **~/DevTools/eclipse/eclipse**.
 
+<a name="git"></a>
 ### Git
 
 Install git:
@@ -107,6 +123,7 @@ Install git:
 $ sudo apt-get install git
 ```
 
+<a name="espIdf"></a>
 ### ESP-IDF
 
 Install ESP-IDF. Version at time of writing is 4.1.1.
@@ -117,6 +134,7 @@ $ cd ~/esp
 $ git clone -b v4.1.1 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1.1
 ```
 
+<a name="serialLink"></a>
 ### Serial link
 
 To grant access to the virtual serial link that will be used to program the ESP32, add the user to the `dialout` group:
@@ -127,6 +145,7 @@ $ sudo adduser developer dialout
 
 Close the session and reopen it.
 
+<a name="eclipseIdfPlugin"></a>
 ## Eclipse IDF plugin
 
 Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
@@ -135,20 +154,24 @@ Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then t
 
 Restart eclipse.
 
+<a name="espIdfConfiguration"></a>
 ## ESP-IDF configuration
 
 In eclipse, select **Help > Download and Configure ESP-IDF**. Check **Use an existing ESP-IDF directory from the file system**. Choose the `/home/developer/esp/esp-idf-v4.1.1` directory. Click on **Finish** button.
 
+<a name="toolsInstallation"></a>
 ## Tools installation
 
 A message box offers to download the tools. Click on the **Yes** button. In the **Install Tools** dialog box that appears, specify the git path: `/usr/bin/git`. Click on **Install Tools** button.
 
+<a name="esp32devkitcConnection"></a>
 # ESP32-DevKitC connection
 
 Connect the DevKitC board to a USB port of the computer. Check that the virtual machine can see it, with **Devices > USB**. A new USB device should be visible: *Silicon Labs CP2102N USB to UART Bridge Controller*. Tick the associated checkbox.
 
 You can assign the board to the virtual machine on a permanent basis with **Devices > USB > USB Settings...**.
 
+<a name="sampleApplication"></a>
 # Sample application
 
 [Create a new project](https://github.com/espressif/idf-eclipse-plugin#create-a-new-project-using-esp-idf-templates), choosing the *hello_world* template.
@@ -161,6 +184,7 @@ Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-
 
 To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin#viewing-serial-output).
 
+<a name="update"></a>
 # Update
 
 For Linux Mint, use the update manager (see above).
