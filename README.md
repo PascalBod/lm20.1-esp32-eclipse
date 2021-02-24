@@ -34,7 +34,7 @@ This short tutorial describes a way to make a virtual machine configured for ESP
 <a name="creationOfTheVm"></a>
 # Creation of the VM
 
-Chec [this guide](https://github.com/PascalBod/lm20.1-vm).
+Check [this guide](https://github.com/PascalBod/lm20.1-vm).
 
 <a name="vmConfiguration"></a>
 # VM configuration
