@@ -131,4 +131,6 @@ To display trace messages printed by the application, [start a terminal](https:/
 <a name="update"></a>
 # Update
 
-For the Eclipse IDF plugin, check [this](https://github.com/espressif/idf-eclipse-plugin#how-do-i-upgrade-my-existing-idf-eclipse-plugin).
+To upgrade ESP-IDF, select **Help > Download and Configure ESP-IDF** and select the ESP-IDF version to download. Once downloaded, the ESP-IDF plugin might ask you to install a new set of tools. Accept, provide the path to git as above and install the tools. 
+
+To upgrade the Eclipse IDF plugin, check [this](https://github.com/espressif/idf-eclipse-plugin#how-do-i-upgrade-my-existing-idf-eclipse-plugin).
