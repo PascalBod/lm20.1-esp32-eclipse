@@ -59,15 +59,17 @@ $ sudo apt-get install python-is-python3
 Install a few additional python packages:
 
 ```shell
-$ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv
+$ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv python3-serial
 ```
 
 <a name="eclipse"></a>
 ### Eclipse
 
-[Download Eclipse CDT](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-12/R/eclipse-cpp-2020-12-R-linux-gtk-x86_64.tar.gz). This is version 2020-12, at time of writing. Check the integrity of the downloaded file.
+[Download Eclipse CDT](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-cc-developers) (x86_64). This is version 2021-03, at time of writing. Check the integrity of the downloaded file.
 
-Create the **~/DevTools** directory, and extract the contents of the downloaded file into it. Add an item to the main menu (right click on the main-menu icon and **Edit menu**) that runs **~/DevTools/eclipse/eclipse**.
+Create the **~/DevTools** directory, and extract the contents of the downloaded file into it.
+
+Run `~/DevTools/eclipse-installer/eclipse-inst`. Choose **Eclipse IDE for C/C++ Developers**. Keep the default path values.
 
 <a name="git"></a>
 ### Git
@@ -81,12 +83,12 @@ $ sudo apt-get install git
 <a name="espIdf"></a>
 ### ESP-IDF
 
-Install ESP-IDF. Version at time of writing is 4.1.1.
+Install ESP-IDF. Version at time of writing is 4.2.1.
 
 ```shell
 $ mkdir ~/esp
 $ cd ~/esp
-$ git clone -b v4.1.1 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1.1
+$ git clone -b v4.2.1 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.2.1
 ```
 
 <a name="eclipseIdfPlugin"></a>
@@ -94,7 +96,7 @@ $ git clone -b v4.1.1 --recursive https://github.com/espressif/esp-idf.git esp-i
 
 Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
 
-[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url). At time of writing, this is version 1.2.4.
+[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url). At time of writing, this is version 2.1.0.
 
 Restart eclipse.
 
