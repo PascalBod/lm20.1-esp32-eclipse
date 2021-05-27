@@ -56,10 +56,10 @@ Linux Mint 20.1 comes with python3. Define the **python** command so that it run
 $ sudo apt-get install python-is-python3
 ```
 
-Install a few additional python packages:
+Install a few additional python packages and ccache:
 
 ```shell
-$ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv python3-serial
+$ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virtualenv python3-venv python3-serial ccache
 ```
 
 <a name="eclipse"></a>
