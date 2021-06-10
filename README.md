@@ -126,7 +126,11 @@ If you check the source code of the application, you will see that eclipse displ
 
 [Configure a launch target](https://github.com/espressif/idf-eclipse-plugin#configuring-launch-target) for the board. Build the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#compiling-the-project).
 
-Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flashing operation does not start right after having requested it, i.e. the console waits on `Connecting........_____...`, hold down the board BOOT button until the flashing operation starts (a little bit more than 1 s).
+Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flashing operation does not start right after having requested it, i.e. the console waits on `Connecting........_____...`, hold down the board BOOT button until the flashing operation starts (a little bit more than 1 s). A way to permanently fix this problem can be to modify the virtual machine settings, as follows:
+* shutdown the virtual machine
+* start VirtualBox, and select **Settings** for the virtual machine
+* in the **USB** category, select **USB 3.0 (xHCI) Controller** 
+* click on the **OK** button to save
 
 To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin#viewing-serial-output).
 
