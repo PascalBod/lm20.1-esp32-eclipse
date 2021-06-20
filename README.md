@@ -103,7 +103,7 @@ Restart eclipse.
 <a name="espIdfConfiguration"></a>
 ## ESP-IDF configuration
 
-In eclipse, select **Help > Download and Configure ESP-IDF**. Check **Use an existing ESP-IDF directory from the file system**. Choose the `/home/developer/esp/esp-idf-v4.1.1` directory. Click on **Finish** button.
+In eclipse, select **Help > Download and Configure ESP-IDF**. Check **Use an existing ESP-IDF directory from the file system**. Choose the `/home/developer/esp/esp-idf-v4.2.1` directory. Click on **Finish** button.
 
 <a name="toolsInstallation"></a>
 ## Tools installation
