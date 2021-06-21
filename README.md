@@ -9,13 +9,12 @@
     * [Python](#python)
     * [Eclipse](#eclipse)
     * [Git](#git)
-    * [ESP-IDF](#espIdf)
   * [Eclipse IDF plugin](#eclipseIdfPlugin)
-  * [ESP-IDF configuration](#espIdfConfiguration)
+  * [ESP-IDF installation](#espIdfInstallation)
   * [Tools installation](#toolsInstallation)
 * [ESP32-DevKitC connection](#esp32devkitcConnection)
 * [Sample application](#sampleApplication)
-* [Update](#update)
+* [Upgrade](#upgrade)
 
 <a name="overview"></a>
 # Overview
@@ -65,7 +64,9 @@ $ sudo apt-get install python3-pip python3-setuptools python3-wheel python3-virt
 <a name="eclipse"></a>
 ### Eclipse
 
-[Download Eclipse CDT](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-cc-developers) (x86_64). This is version 2021-03, at time of writing. Check the integrity of the downloaded file.
+[Download Eclipse Installer 2021‑03 R](https://www.eclipse.org/downloads/packages/release/2021-03/r) (x86_64). **Important**: do not use Eclipse 2021-06, as IDF plugin is [currently incompatible with this version](https://github.com/espressif/idf-eclipse-plugin/issues/299).
+
+Check the integrity of the downloaded file.
 
 Create the **~/DevTools** directory, and extract the contents of the downloaded file into it.
 
@@ -80,30 +81,19 @@ Install git:
 $ sudo apt-get install git
 ```
 
-<a name="espIdf"></a>
-### ESP-IDF
-
-Install ESP-IDF. Version at time of writing is 4.2.1.
-
-```shell
-$ mkdir ~/esp
-$ cd ~/esp
-$ git clone -b v4.2.1 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.2.1
-```
-
 <a name="eclipseIdfPlugin"></a>
 ## Eclipse IDF plugin
 
-Start eclipse. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
+Start Eclipse, if not yet done from the installer. Keep the proposed workspace. Close the **Welcome** tab and then the **Donate** tab.
 
-[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin#installing-idf-plugin-using-update-site-url). At time of writing, this is version 2.1.0.
+[Install the IDF plugin](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#installing-idf-plugin-using-update-site-url). At time of writing, this is version 2.1.0.
 
-Restart eclipse.
+Restart Eclipse.
 
-<a name="espIdfConfiguration"></a>
-## ESP-IDF configuration
+<a name="espIdfInstallation"></a>
+## ESP-IDF installation
 
-In eclipse, select **Help > Download and Configure ESP-IDF**. Check **Use an existing ESP-IDF directory from the file system**. Choose the `/home/developer/esp/esp-idf-v4.1.1` directory. Click on **Finish** button.
+[Install ESP-IDF from Eclipse](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#installing-esp-idf). Choose `v4.3` for the version, and select the `DevTools` directory for download directory.
 
 <a name="toolsInstallation"></a>
 ## Tools installation
@@ -120,23 +110,23 @@ You can assign the board to the virtual machine on a permanent basis with **Devi
 <a name="sampleApplication"></a>
 # Sample application
 
-[Create a new project](https://github.com/espressif/idf-eclipse-plugin#create-a-new-project-using-esp-idf-templates), choosing the *hello_world* template.
+[Create a new project](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#create-a-new-project), choosing the *hello_world* template.
 
 If you check the source code of the application, you will see that eclipse displays errors for the `#include` lines. Next step will make them disappear.
 
-[Configure a launch target](https://github.com/espressif/idf-eclipse-plugin#configuring-launch-target) for the board. Build the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#compiling-the-project).
+[Configure a launch target](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#configuring-launch-target) for the board. Build the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#compiling-the-project).
 
-Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin#flashing-the-project). If the console shows that the flashing operation does not start right after having requested it, i.e. the console waits on `Connecting........_____...`, hold down the board BOOT button until the flashing operation starts (a little bit more than 1 s). A way to permanently fix this problem can be to modify the virtual machine settings, as follows:
+Flash the project, as explained [here](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#flashing-the-project). If the console shows that the flashing operation does not start right after having requested it, i.e. the console waits on `Connecting........_____...`, hold down the board BOOT button until the flashing operation starts (a little bit more than 1 s). A way to permanently fix this problem can be to modify the virtual machine settings, as follows:
 * shutdown the virtual machine
 * start VirtualBox, and select **Settings** for the virtual machine
 * in the **USB** category, select **USB 3.0 (xHCI) Controller** 
 * click on the **OK** button to save
 
-To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin#viewing-serial-output).
+To display trace messages printed by the application, [start a terminal](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#viewing-serial-output).
 
-<a name="update"></a>
-# Update
+<a name="upgrade"></a>
+# Upgrade
 
 To upgrade ESP-IDF, select **Help > Download and Configure ESP-IDF** and select the ESP-IDF version to download. Once downloaded, the ESP-IDF plugin might ask you to install a new set of tools. Accept, provide the path to git as above and install the tools. 
 
-To upgrade the Eclipse IDF plugin, check [this](https://github.com/espressif/idf-eclipse-plugin#how-do-i-upgrade-my-existing-idf-eclipse-plugin).
+To upgrade the Eclipse IDF plugin, check [this](https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md#how-do-i-upgrade-my-existing-idf-eclipse-plugin).
